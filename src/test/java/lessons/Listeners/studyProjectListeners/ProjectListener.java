@@ -1,4 +1,4 @@
-package Listeners.studyProjectListeners;
+package lessons.Listeners.studyProjectListeners;
 
 import org.testng.ITestListener;
 
