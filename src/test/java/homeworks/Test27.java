@@ -50,7 +50,6 @@ public class Test27 {
 
         driver.navigate().back();
         String currentURL = driver.getCurrentUrl();
-        System.out.println(currentURL);
         Assert.assertEquals(currentURL, "https://rozetka.com.ua/ua/","URL doesn't match");
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
