@@ -7,15 +7,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.Duration;
 
+public class testnew {
 
-public class TestTittleOnProductPage {
     private WebDriver driver;
     private WebDriverWait wait;
 
@@ -30,7 +31,7 @@ public class TestTittleOnProductPage {
     }
 
     @Test
-    public void rozetkaTest() throws InterruptedException {
+    public void rozetkaTest() throws InterruptedException, IOException {
         WebElement searchInput = driver.findElement(By.name("search"));
         searchInput.sendKeys("Mac");
 
@@ -39,13 +40,24 @@ public class TestTittleOnProductPage {
 
         WebElement firstProduct = wait
                 .until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@class='goods-tile__title']")));
-        String titleOfFirstProduct = firstProduct.getText().trim();
         firstProduct.click();
+
         WebElement productPageTitle = driver.findElement(By.xpath("//h1[@class='product__title']"));
+        WebElement productPrice = driver.findElement(By.xpath("//p[@class='product-prices__big']"));
 
-        String productPageTitleText=productPageTitle.getAttribute("innerText");
+        String productPageTitleText = productPageTitle.getAttribute("innerText").trim();
+        String productPriceText = productPrice.getText();
 
-        Assert.assertEquals(titleOfFirstProduct,productPageTitleText,"Title dosent equals");
+        WebElement availabilityOfProduct = driver.findElement(By.cssSelector("p.status-label--green"));
+        String availabilityOfProductColor = availabilityOfProduct.getCssValue("color");
+
+
+        if(availabilityOfProduct.isDisplayed()&&availabilityOfProductColor.equals("rgba(0, 160, 70, 1)")){
+            FileWriter fileWriter = new FileWriter("test");
+            fileWriter.write(productPageTitleText+" "+productPriceText);
+            fileWriter.close();
+        }
+
 
     }
 

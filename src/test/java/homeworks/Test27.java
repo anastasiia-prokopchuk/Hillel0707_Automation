@@ -15,6 +15,9 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import static org.openqa.selenium.devtools.v85.page.Page.navigate;
 
 public class Test27 {
     private WebDriver driver;
@@ -45,14 +48,13 @@ public class Test27 {
 
         Assert.assertEquals(firstProductPriceText, priceOnProductPageText,"Prices doesn't match");
 
-        WebElement logo = driver.findElement(By.xpath("//*[@class='header__logo']"));
-        logo.click();
-
+        driver.navigate().back();
         String currentURL = driver.getCurrentUrl();
+        System.out.println(currentURL);
         Assert.assertEquals(currentURL, "https://rozetka.com.ua/ua/","URL doesn't match");
 
-       JavascriptExecutor js = (JavascriptExecutor) driver;
-       js.executeScript("window.scroll(0,1000);", "");
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scroll(0,1000);", "");
 
         List<WebElement> productInBlockAfterReturn = driver.findElements(By.xpath("//*[text()=' Акційні пропозиції ']/following-sibling::ul/li"));
         Assert.assertEquals(productInBlockAfterReturn.size(),6,"Count of products doesn't match");
