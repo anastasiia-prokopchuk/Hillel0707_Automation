@@ -50,7 +50,7 @@ public class Test26 {
     private static Map<String,String> writingToMap(List<WebElement> productsName, List<WebElement> productsPrice){
         Map<String,String> productsFromFirstPage = new LinkedHashMap<>();
         if(productsName.size()==productsPrice.size()) {
-            for (int i = 0; i < productsName.size()-1; i++) {
+            for (int i = 0; i < productsName.size(); i++) {
                 String newName = productsName.get(i).getAttribute("innerText").replace(String.valueOf((char) 160),"");
                 String newPrice = productsPrice.get(i).getAttribute("innerText").replace(String.valueOf((char) 160),"");
 
