@@ -20,13 +20,4 @@ public class ProductsPageLogic {
         this.wait = wait;
     }
 
-    public List<WebElement> getElementList(By element) {
-
-        wait.until(ExpectedConditions.elementToBeClickable(element));
-        driver.findElement(element);
-
-        List <WebElement> elementsList = driver.findElements(element);
-        return elementsList;
-    }
-
 }

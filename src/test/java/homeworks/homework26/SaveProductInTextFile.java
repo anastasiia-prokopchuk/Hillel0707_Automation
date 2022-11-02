@@ -1,7 +1,6 @@
 package homeworks.homework26;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -41,16 +40,13 @@ public class SaveProductInTextFile {
                 .laptopsAndComputerCategoryClick()
                 .laptopCategoryClick();
         ProductsPageLogic productsPageLogic = new ProductsPageLogic(driver,wait);
-
-        By productTitle = productsPageLogic.productTitle;
-        By productPrice = productsPageLogic.productPrice;
-
-        List<WebElement> productsTitle = productsPageLogic.getElementList(productTitle);
-        List<WebElement> productsPrice = productsPageLogic.getElementList(productPrice);
-
         CommonLogic commonLogic = new CommonLogic(driver,wait);
-        Map<String,String> productsFromFirstPage = commonLogic.writingToMap(productsTitle,productsPrice);
-        commonLogic.writingToFile(productsFromFirstPage);
+
+        List<WebElement> productsTitle = commonLogic.getElementsList(productsPageLogic.productTitle);
+        List<WebElement> productsPrice = commonLogic.getElementsList(productsPageLogic.productPrice);
+
+        Map<String,String> productsFromFirstPage = CommonLogic.writingToMap(productsTitle,productsPrice);
+        CommonLogic.writingToFile(productsFromFirstPage);
     }
 
     @AfterTest

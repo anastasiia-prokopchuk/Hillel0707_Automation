@@ -1,7 +1,9 @@
 package homeworks.homework26;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.FileWriter;
@@ -21,7 +23,7 @@ public class CommonLogic {
     }
 
 
-    public Map<String, String> writingToMap(List<WebElement> productsName, List<WebElement> productsPrice) {
+    public static Map<String, String> writingToMap(List<WebElement> productsName, List<WebElement> productsPrice) {
 
         Map<String, String> productsFromFirstPage = new LinkedHashMap<>();
         if (productsName.size() == productsPrice.size()) {
@@ -35,11 +37,22 @@ public class CommonLogic {
         return productsFromFirstPage;
     }
 
-    public void writingToFile(Map<String, String> productsFromFirstPage) throws IOException {
+    public static void writingToFile(Map<String, String> productsFromFirstPage) throws IOException {
         FileWriter fileWriter = new FileWriter("rozetkaTest2.txt");
         for (Map.Entry<String, String> product : productsFromFirstPage.entrySet()) {
             fileWriter.write(product.getKey() + " - " + product.getValue() + " грн" + "\n");
         }
         fileWriter.close();
     }
+
+    public List<WebElement> getElementsList(By element) {
+
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+        driver.findElement(element);
+
+        List <WebElement> elementsList = driver.findElements(element);
+        return elementsList;
+    }
+
+
 }
