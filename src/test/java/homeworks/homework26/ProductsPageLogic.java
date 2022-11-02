@@ -22,13 +22,8 @@ public class ProductsPageLogic {
 
     public List<WebElement> getElementList(By element) {
 
-        try {
-            wait.until(ExpectedConditions.elementToBeClickable(element));
-            driver.findElement(element);
-        } catch (org.openqa.selenium.StaleElementReferenceException e) {
-            System.out.print("HERE " + element);
-            driver.findElement(element);
-        }
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+        driver.findElement(element);
 
         List <WebElement> elementsList = driver.findElements(element);
         return elementsList;
