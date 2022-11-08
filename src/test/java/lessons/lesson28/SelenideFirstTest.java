@@ -5,8 +5,7 @@ import org.openqa.selenium.By;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 public class SelenideFirstTest {
@@ -25,6 +24,8 @@ public class SelenideFirstTest {
                 .shouldBe(visible)
                 .shouldHave(text("Найти"))
                 .shouldNotHave(text("Alex"))
+                .shouldNotHave(value("Поиск в Google"))
+                .shouldHave(attribute("required"))
                 .click();
         sleep(5000);
     }

@@ -1,17 +1,19 @@
-package lessons.lesson25;
+package lessons.lesson19.lesson25;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
-public class Test_JSExecutor_scroll {
+public class Test_JSExecutor {
+
     private WebDriver driver;
 
     @BeforeTest
@@ -25,10 +27,14 @@ public class Test_JSExecutor_scroll {
 
     @Test
     public void rozetkaTest() throws InterruptedException {
-        JavascriptExecutor jse = (JavascriptExecutor) driver;
-        jse.executeScript("window.scroll(0,1000);", "");
+        WebElement searchInput = driver.findElement(By.name("search"));
+        searchInput.sendKeys("Mac");
 
-         TimeUnit.SECONDS.sleep(10);
+        WebElement btnSearch = driver.findElement(By.xpath("//button[contains(@class, 'button_color_green')]"));
+
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("arguments[0].click();", btnSearch);
+
 
     }
 
@@ -36,6 +42,5 @@ public class Test_JSExecutor_scroll {
     public void after(){
         driver.quit();
     }
-
 
 }

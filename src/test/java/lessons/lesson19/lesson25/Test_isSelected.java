@@ -1,8 +1,7 @@
-package lessons.lesson25;
+package lessons.lesson19.lesson25;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,7 +11,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class Test_JSExecutor {
+public class Test_isSelected {
 
     private WebDriver driver;
 
@@ -26,14 +25,22 @@ public class Test_JSExecutor {
     }
 
     @Test
-    public void rozetkaTest() throws InterruptedException {
-        WebElement searchInput = driver.findElement(By.name("search"));
-        searchInput.sendKeys("Mac");
+    public void rozetkaTest()  {
 
-        WebElement btnSearch = driver.findElement(By.xpath("//button[contains(@class, 'button_color_green')]"));
+        WebElement login =driver.findElement((By.xpath("//li[contains(@class, '--user')]")));
+        login.click();
 
-        JavascriptExecutor jse = (JavascriptExecutor) driver;
-        jse.executeScript("arguments[0].click();", btnSearch);
+        WebElement rememberCheckboxInput = driver.findElement(By.id("remember_me"));
+        WebElement rememberCheckbox = driver.findElement(By.xpath("//label[@for='remember_me']"));
+
+
+        System.out.println(rememberCheckboxInput.isSelected());
+
+        rememberCheckbox.click();
+        System.out.println(rememberCheckboxInput.isSelected());
+
+
+
 
 
     }
@@ -42,5 +49,6 @@ public class Test_JSExecutor {
     public void after(){
         driver.quit();
     }
+
 
 }

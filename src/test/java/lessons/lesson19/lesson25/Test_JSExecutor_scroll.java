@@ -1,18 +1,17 @@
-package lessons.lesson25;
+package lessons.lesson19.lesson25;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
-public class Test_isSelected {
-
+public class Test_JSExecutor_scroll {
     private WebDriver driver;
 
     @BeforeTest
@@ -25,23 +24,11 @@ public class Test_isSelected {
     }
 
     @Test
-    public void rozetkaTest()  {
+    public void rozetkaTest() throws InterruptedException {
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("window.scroll(0,1000);", "");
 
-        WebElement login =driver.findElement((By.xpath("//li[contains(@class, '--user')]")));
-        login.click();
-
-        WebElement rememberCheckboxInput = driver.findElement(By.id("remember_me"));
-        WebElement rememberCheckbox = driver.findElement(By.xpath("//label[@for='remember_me']"));
-
-
-        System.out.println(rememberCheckboxInput.isSelected());
-
-        rememberCheckbox.click();
-        System.out.println(rememberCheckboxInput.isSelected());
-
-
-
-
+         TimeUnit.SECONDS.sleep(10);
 
     }
 

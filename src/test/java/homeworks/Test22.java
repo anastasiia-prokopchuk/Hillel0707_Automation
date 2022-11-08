@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class homework22 {
+public class Test22 {
     private WebDriver driver;
 
     @BeforeTest

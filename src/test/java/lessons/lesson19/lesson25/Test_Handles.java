@@ -1,4 +1,4 @@
-package lessons.lesson25;
+package lessons.lesson19.lesson25;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
