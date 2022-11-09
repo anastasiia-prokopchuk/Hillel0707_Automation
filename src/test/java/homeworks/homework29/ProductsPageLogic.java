@@ -1,22 +1,21 @@
 package homeworks.homework29;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.page;
 
 public class ProductsPageLogic extends ProductsPageElement {
     public void addProductToCart(){
+        btnToCart.shouldBe(Condition.appear);
         btnToCart.click();
     }
 
-    public String productName(SelenideElement firstProduct){
-        return firstProduct.getText().trim();
+    public String productName(int indexNumber){
+      return productsList.get(indexNumber).getText().trim();
     }
 
-    public ProductsPageLogic checkCountOnCart(String number){
-        counterCart.shouldBe(Condition.text(number));
-        return this;
+    public void checkCountOnCart(String count){
+        counterCart.shouldBe(Condition.text(count));
     }
 
     public CartPageLogic clickBtnCartHeader(){
