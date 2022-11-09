@@ -1,5 +1,6 @@
 package homeworks.homework29;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -27,7 +28,7 @@ public class Main {
          String nameOnPage = PRODUCTS_PAGE_LOGIC.productName(0);
          PRODUCTS_PAGE_LOGIC.checkCountOnCart("1");
          PRODUCTS_PAGE_LOGIC.clickBtnCartHeader()
-                 .productInCartName().equals(nameOnPage);
+                 .productInCart.shouldBe(Condition.text(nameOnPage));
     }
 
 }
