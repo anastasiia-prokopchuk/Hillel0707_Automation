@@ -11,6 +11,8 @@ public class Main {
     private final MainPageLogic MAIN_PAGE_LOGIC = new MainPageLogic();
     private final ProductsPageLogic PRODUCTS_PAGE_LOGIC = new ProductsPageLogic();
 
+    int productIndex = 0;
+
 
     @BeforeMethod
     public void before(){
@@ -23,9 +25,9 @@ public class Main {
          MAIN_PAGE_LOGIC
                  .clickOnMainCategory(0)
                  .clickOnCategory(0)
-                 .addProductToCart(0);
+                 .addProductToCart(productIndex);
 
-         String nameOnPage = PRODUCTS_PAGE_LOGIC.productName(0);
+         String nameOnPage = PRODUCTS_PAGE_LOGIC.productName(productIndex);
          PRODUCTS_PAGE_LOGIC.checkCountOnCart("1");
          PRODUCTS_PAGE_LOGIC.clickBtnCartHeader()
                  .productInCart.shouldBe(Condition.text(nameOnPage));
