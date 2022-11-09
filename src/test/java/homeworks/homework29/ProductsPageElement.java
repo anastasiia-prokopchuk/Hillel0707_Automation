@@ -11,7 +11,7 @@ public class ProductsPageElement {
 
 
     ElementsCollection productsList = $$(byXpath("//span[@class='goods-tile__title']"));
-    SelenideElement btnToCart = $(byXpath("//button[contains(@class, 'buy-button')]"));
+    ElementsCollection btnsToCart = $$(byXpath("//button[contains(@class, 'buy-button')]"));
     SelenideElement counterCart = $(byXpath("//span[contains(@class, 'counter')]"));
     SelenideElement btnCartHeader = $(byXpath("//*[contains(@class,'header__button--active')]"));
 

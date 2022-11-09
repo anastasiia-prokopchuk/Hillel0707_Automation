@@ -23,7 +23,7 @@ public class Main {
          MAIN_PAGE_LOGIC
                  .clickOnMainCategory(0)
                  .clickOnCategory(0)
-                 .addProductToCart();
+                 .addProductToCart(0);
 
          String nameOnPage = PRODUCTS_PAGE_LOGIC.productName(0);
          PRODUCTS_PAGE_LOGIC.checkCountOnCart("1");
