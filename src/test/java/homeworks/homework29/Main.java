@@ -27,9 +27,10 @@ public class Main {
                  .clickOnCategory(0)
                  .addProductToCart(productIndex);
 
-         String nameOnPage = PRODUCTS_PAGE_LOGIC.productName(productIndex);
-         PRODUCTS_PAGE_LOGIC.checkCountOnCart("1");
-         PRODUCTS_PAGE_LOGIC.clickBtnCartHeader()
+         String nameOnPage = PRODUCTS_PAGE_LOGIC.getProductName(productIndex);
+
+         PRODUCTS_PAGE_LOGIC.checkCountOnCart("1")
+                 .clickBtnCartHeader()
                  .productInCart.shouldBe(Condition.text(nameOnPage));
     }
 

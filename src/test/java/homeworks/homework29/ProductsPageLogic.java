@@ -12,12 +12,13 @@ public class ProductsPageLogic extends ProductsPageElement {
         btnToCart.click();
     }
 
-    public String productName(int indexNumber){
+    public String getProductName(int indexNumber){
       return productsList.get(indexNumber).getText().trim();
     }
 
-    public void checkCountOnCart(String count){
+    public ProductsPageLogic checkCountOnCart(String count){
         counterCart.shouldBe(Condition.text(count));
+        return this;
     }
 
     public CartPageLogic clickBtnCartHeader(){
