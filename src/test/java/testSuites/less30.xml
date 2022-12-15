@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="less30">
+
+        <test name="newSuiteFromMvn">
+        <classes>
+            <class name="lessons.lesson30.StreamApi"/>
+            <class name="lessons.lesson30.Car"/>
+            <class name="lessons.lesson30.StreamExample"/>
+            <class name="lessons.lesson28.SelenideFirstTest"/>
+        </classes>
+        </test>
+</suite>
