@@ -87,8 +87,8 @@
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
                     <suiteXmlFiles>
-<!--                        <suiteXmlFile>${basedir}${TEST_SUITE}.xml</suiteXmlFile>-->
-                                                <suiteXmlFile>${basedir}/src/test/java/testSuites/less30.xml</suiteXmlFile>
+                        <suiteXmlFile>${basedir}${TEST_SUITE}.xml</suiteXmlFile>
+<!--                                                <suiteXmlFile>${basedir}/src/test/java/testSuites/less30.xml</suiteXmlFile>-->
                     </suiteXmlFiles>
                     <systemProperties>
                         <property>
