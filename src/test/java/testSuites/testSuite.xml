@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="testSuite">
+
+        <test name="newSuiteFromMvn">
+        <classes>
+            <class name="lessons.lesson30.TestRunOnMaven"/>
+        </classes>
+        </test>
+</suite>
