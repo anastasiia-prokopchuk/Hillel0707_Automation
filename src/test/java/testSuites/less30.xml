@@ -7,7 +7,7 @@
             <class name="lessons.lesson30.StreamApi"/>
             <class name="lessons.lesson30.Car"/>
             <class name="lessons.lesson30.StreamExample"/>
-            <class name="lessons.lesson28.SelenideFirstTest"/>
+            <class name="lessons.lesson23.TestTittleOnProductPage"/>
         </classes>
         </test>
 </suite>
